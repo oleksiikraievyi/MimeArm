@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace MimeArm.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class BusinessLayerTests
     {
         [TestMethod]
         public void TestMethod1()
