@@ -1,10 +1,20 @@
-﻿namespace MimeArm
+﻿using System.Threading;
+using MimeArm.BusinessLayer;
+using MimeArm.Interfaces;
+
+namespace MimeArm
 {
     class Program
     {
-        static void Main()
+        public static void Main()
         {
-
+            using (var comController = new ComController())
+            {
+                using (var comInterface = new ComInterface(comController))
+                {
+                    new ManualResetEvent(false).WaitOne();
+                }
+            }
         }
     }
 }

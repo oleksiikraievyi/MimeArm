@@ -46,9 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessLayer\ComController.cs" />
     <Compile Include="BusinessLayer\Controller.cs" />
     <Compile Include="DataLayer\LeapListener.cs" />
     <Compile Include="DataLayer\LeapReader.cs" />
+    <Compile Include="Interfaces\ComInterface.cs" />
     <Compile Include="Interfaces\Interface.cs" />
     <Compile Include="Models\FrameEventArgs.cs" />
     <Compile Include="Models\LeapData.cs" />
