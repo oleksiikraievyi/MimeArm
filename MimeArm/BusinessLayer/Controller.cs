@@ -23,7 +23,7 @@ namespace MimeArm.BusinessLayer
 
         public void RecieveLeapData(object sender, LeapDataEventArgs args)
         {
-            
+            // recieve leap data 
         }
 
         public void Dispose()
