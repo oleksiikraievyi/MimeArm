@@ -14,6 +14,7 @@ namespace MimeArm.BusinessLayer
         protected Controller()
         {
             LeapReader = LeapReader.Instance;
+            LeapReader.OnRecievedDataFromListener += RecieveLeapData;
         }
 
         protected virtual T TransferToView()
@@ -23,7 +24,8 @@ namespace MimeArm.BusinessLayer
 
         public void RecieveLeapData(object sender, LeapDataEventArgs args)
         {
-            // recieve leap data 
+            CurrentLeapData = args.CurrentLeapData;
+            OnRecievedDataFromReader?.Invoke(this, TransferToView());
         }
 
         public void Dispose()

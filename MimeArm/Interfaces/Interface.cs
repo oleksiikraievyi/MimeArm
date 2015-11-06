@@ -10,6 +10,7 @@ namespace MimeArm.Interfaces
         protected Interface(Controller<T> controller)
         {
             Controller = controller;
+            controller.OnRecievedDataFromReader += SendDataToInterface;
         }
 
         public virtual void SendDataToInterface(object sender, T t)
