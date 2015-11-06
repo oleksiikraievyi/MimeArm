@@ -1,4 +1,5 @@
-﻿using MimeArm.BusinessLayer;
+﻿using System;
+using MimeArm.BusinessLayer;
 using MimeArm.Models;
 
 namespace MimeArm.Interfaces
@@ -9,7 +10,7 @@ namespace MimeArm.Interfaces
 
         public override void SendDataToInterface(object sender, LeapData t)
         {
-            
+            Console.WriteLine("Send data to COM");
         }
     }
 }
