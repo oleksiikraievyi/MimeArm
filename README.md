@@ -10,5 +10,5 @@ HowTo build and run MimeArm project.
 1) Clone the repo - "git clone https://github.com/lexCerveza/MimeArm.git"
 2) Open the solution in Visual Studio - in VS click on File -> Open -> Project/Solution and
 choose MimeArm.sln file
-3) Build project - Tools -> Command Prompt -> type "build.cmd" and hit Enter.
-4) Run project - Open MimeArm/LM Data Extraction/Debug/bin folder and run LM Data Extraction.exe file
+3) Build project - Build -> Build solution
+4) Run project - Click on Start button
