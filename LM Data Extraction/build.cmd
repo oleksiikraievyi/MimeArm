@@ -1,1 +1,0 @@
-MsBuild MimeArm.sln
