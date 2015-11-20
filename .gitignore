@@ -1,0 +1,7 @@
+bin/**
+MimeArm.Tests/obj/**
+MimeArm/Properties/Settings.*
+MimeArm/bin/**
+MimeArm/obj/**
+.gradle/**
+.vs/**
