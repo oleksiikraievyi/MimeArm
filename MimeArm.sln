@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LM Data Extraction", "LM Data Extraction\LM Data Extraction.csproj", "{7F1112D6-E13F-4686-B4E1-7BC28A0312A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimeArm", "MimeArm\MimeArm.csproj", "{355ED1F8-BADF-480A-937D-BA062346A9D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimeArm.Tests", "MimeArm.Tests\MimeArm.Tests.csproj", "{2635B22A-8001-4C3C-A4FB-CC128780C940}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7F1112D6-E13F-4686-B4E1-7BC28A0312A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F1112D6-E13F-4686-B4E1-7BC28A0312A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F1112D6-E13F-4686-B4E1-7BC28A0312A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F1112D6-E13F-4686-B4E1-7BC28A0312A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{355ED1F8-BADF-480A-937D-BA062346A9D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{355ED1F8-BADF-480A-937D-BA062346A9D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{355ED1F8-BADF-480A-937D-BA062346A9D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{355ED1F8-BADF-480A-937D-BA062346A9D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2635B22A-8001-4C3C-A4FB-CC128780C940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2635B22A-8001-4C3C-A4FB-CC128780C940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2635B22A-8001-4C3C-A4FB-CC128780C940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2635B22A-8001-4C3C-A4FB-CC128780C940}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
