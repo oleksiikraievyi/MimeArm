@@ -30,7 +30,8 @@ namespace MimeArm.DataLayer
 
         private void RecieveDataFromListener(object sender, FrameEventArgs args)
         {
-            
+            var leapData = new LeapData(args.CurrentFrame);
+            OnRecievedDataFromListener?.Invoke(this, new LeapDataEventArgs(leapData));
         }
 
         public void Dispose()
