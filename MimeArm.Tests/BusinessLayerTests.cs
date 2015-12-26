@@ -35,10 +35,9 @@ namespace MimeArm.Tests
             using (var comController = new ComController())
             {
                 var testFrame = new Frame();
-                var testLeapData = new LeapData(testFrame);
 
                 testListener.RaiseEvent(this, testFrame);
-                Assert.IsTrue(testLeapData.CurrentFrame == comController.CurrentLeapData.CurrentFrame);
+                Assert.IsTrue(testFrame == comController.CurrentLeapData.CurrentFrame);
             }
         }
     }
