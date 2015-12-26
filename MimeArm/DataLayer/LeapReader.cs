@@ -8,7 +8,7 @@ namespace MimeArm.DataLayer
     {
         private static LeapReader _instance;
 
-        private Controller LeapController { get; }
+        public Controller LeapController { get; set; }
 
         public event EventHandler<LeapDataEventArgs> OnRecievedDataFromListener;
         private LeapReader()
@@ -28,7 +28,7 @@ namespace MimeArm.DataLayer
             }
         }
 
-        private void RecieveDataFromListener(object sender, FrameEventArgs args)
+        public void RecieveDataFromListener(object sender, FrameEventArgs args)
         {
             var leapData = new LeapData(args.CurrentFrame);
             OnRecievedDataFromListener?.Invoke(this, new LeapDataEventArgs(leapData));
