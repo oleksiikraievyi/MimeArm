@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimeArm", "MimeArm\MimeArm.csproj", "{355ED1F8-BADF-480A-937D-BA062346A9D2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimeArm.Tests", "MimeArm.Tests\MimeArm.Tests.csproj", "{2635B22A-8001-4C3C-A4FB-CC128780C940}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MimeArm.Unity", "MimeArm.Unity\MimeArm.Unity\MimeArm.Unity.csproj", "{67190C64-3765-44E6-9BA6-CA320CE9FDDF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2635B22A-8001-4C3C-A4FB-CC128780C940}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2635B22A-8001-4C3C-A4FB-CC128780C940}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2635B22A-8001-4C3C-A4FB-CC128780C940}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67190C64-3765-44E6-9BA6-CA320CE9FDDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67190C64-3765-44E6-9BA6-CA320CE9FDDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67190C64-3765-44E6-9BA6-CA320CE9FDDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67190C64-3765-44E6-9BA6-CA320CE9FDDF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
