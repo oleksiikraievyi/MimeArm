@@ -42,7 +42,6 @@ msbuild {
 	
 	// copy Leap Motion dll files needed for launch
 	copyLeapDlls
-	
 }
 
 assemblyInfoPatcher {
