@@ -16,7 +16,7 @@ namespace MimeArm
         public static void Main()
         {
             var programInfoConfig = (ConfigurationManager.GetSection(ProgramInfoSectionName) as NameValueCollection)?[ProgramVersionPropertyName];
-            Console.WriteLine("MimeArm, version: " + programInfoConfig);
+            Console.WriteLine("MimeArm, build: " + programInfoConfig + ". Press Enter to proceed");
             Console.Read();
 
             using (var comController = new ComController())

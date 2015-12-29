@@ -10,14 +10,43 @@ namespace MimeArm.BusinessLayer
     public class ComController : Controller<LeapData>, IDisposable
     {
         public SerialPort Port { get; private set; }
+        private const int STANDARD_BAUD_RATE = 38400;
 
         public ComController()
         {
-            Port = new SerialPort("COM3", 38400);
-            Port.Open();
+            TryConnectToArm();
             RequestIDPacket();
             SetCartesianCoordinateSystem();
             SendMoveCommand(512, 200, 200, 150);
+        }
+
+        private bool TryConnectToArm()
+        {
+            Port = null;
+
+            while (Port == null)
+            {
+                var portNamesList = SerialPort.GetPortNames();
+
+                foreach (var portName in portNamesList)
+                {
+                    if (RequestIDPacket())
+                        Port = new SerialPort(portName, STANDARD_BAUD_RATE);
+                }
+
+                if (Port == null)
+                {
+                    Console.WriteLine("Arm not connected, please connect the arm.");
+
+                }
+                else 
+{
+                    Port.Open();
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         protected override LeapData TransferToView()
@@ -59,12 +88,15 @@ namespace MimeArm.BusinessLayer
             byte[] armStatusBytes = null;
             armStatusBytes = ReadArmStatus();
 
-            Console.Write("Arm status: ");
-            Console.WriteLine(string.Join(",", armStatusBytes));
-            Console.WriteLine("Package OK: " + IsPackageOk(armStatusBytes));
-            Console.WriteLine(Port.ReadExisting());
+            if (IsPackageOk(armStatusBytes))
+            {
+                Console.Write("Arm status: ");
+                Console.WriteLine(string.Join(",", armStatusBytes));
+                Console.WriteLine("Package OK: " + IsPackageOk(armStatusBytes));
+                Console.WriteLine(Port.ReadExisting());
+            }
 
-            return IsPackageOk(armStatusBytes);
+            return IsPackageOk(armStatusBytes) && armStatusBytes[1] == 2;
         }
 
         public static bool IsPackageOk(byte[] package)
