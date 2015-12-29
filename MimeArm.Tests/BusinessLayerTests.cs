@@ -1,6 +1,6 @@
 ﻿using System;
 using Leap;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using MimeArm.BusinessLayer;
 using MimeArm.DataLayer;
 using MimeArm.Models;
@@ -22,10 +22,10 @@ namespace MimeArm.Tests
         }
     }
 
-    [TestClass]
+    [TestFixture]
     public class BusinessLayerTests
     {
-        [TestMethod]
+        [Test]
         public void ComControllerTest_IsInputAndOutputEqual()
         {
             var leapReader = LeapReader.Instance;
@@ -37,7 +37,7 @@ namespace MimeArm.Tests
                 var testFrame = new Frame();
 
                 testListener.RaiseEvent(this, testFrame);
-                Assert.IsTrue(testFrame == comController.CurrentLeapData.CurrentFrame);
+                Assert.AreEqual(testFrame, comController.CurrentLeapData.CurrentFrame);
             }
         }
     }
