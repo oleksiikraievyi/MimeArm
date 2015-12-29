@@ -18,7 +18,7 @@ namespace MimeArm.Interfaces
             Console.WriteLine("Send data to interface");
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             Controller.Dispose();
         }

@@ -36,5 +36,10 @@ namespace MimeArm.Interfaces
         {
             allowedCommunication = false;
         }
+
+        public override void Dispose()
+        {
+            leapDataController.Dispose();
+        }
     }
 }
