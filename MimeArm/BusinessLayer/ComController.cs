@@ -15,6 +15,9 @@ namespace MimeArm.BusinessLayer
         {
             Port = new SerialPort("COM3", 38400);
             Port.Open();
+            RequestIDPacket();
+            SetCartesianCoordinateSystem();
+            SendMoveCommand(512, 200, 200, 150);
         }
 
         protected override LeapData TransferToView()
@@ -26,7 +29,6 @@ namespace MimeArm.BusinessLayer
         {
             Console.Write("Setting cartesian coordinate system...");
             Console.WriteLine(string.Join(",", SendExternalCommand(0x20)));
-
         }
 
         private void GoToHomePosition()
@@ -170,6 +172,7 @@ namespace MimeArm.BusinessLayer
 
         public override void Dispose()
         {
+            GoToSleepMode();
             Port.Close();
             Port.Dispose();
             base.Dispose();
