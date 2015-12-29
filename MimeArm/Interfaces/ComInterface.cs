@@ -17,7 +17,10 @@ namespace MimeArm.Interfaces
 
         public override void SendDataToInterface(object sender, LeapData t)
         {
-            Console.WriteLine("Send data to COM");
+            if (allowedCommunication)
+            {
+                Console.WriteLine("Send data to COM");
+            }
         }
 
         [MethodImpl(MethodImplOptions.Synchronized)]
