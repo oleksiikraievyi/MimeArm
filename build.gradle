@@ -39,6 +39,7 @@ apply plugin:'msbuild'
 msbuild {
 	// get git tag as project version configuration
 	updateProjectVersion
+	
 	solutionFile = 'MimeArm.sln'
 	projectFile = file('MimeArm/MimeArm.csproj')
 	
@@ -50,14 +51,4 @@ msbuild {
 	
 	// copy Leap Motion dll files needed for launch
 	copyLeapDlls
-}
-
-assemblyInfoPatcher {
-	version = project.version + '.0.0'
-	
-	// defaults to above version, fewer restrictions on the format
-	fileVersion = version + '-Beta'
-	
-	// default to msbuild main project (of solution)
-	projects = [ 'MimeArm' ]
 }
