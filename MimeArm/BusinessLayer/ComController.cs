@@ -22,6 +22,13 @@ namespace MimeArm.BusinessLayer
             return CurrentLeapData;
         }
 
+        private void SetCartesianCoordinateSystem()
+        {
+            Console.Write("Setting cartesian coordinate system...");
+            Console.WriteLine(string.Join(",", SendExternalCommand(0x20)));
+
+        }
+
         private void GoToHomePosition()
         {
             Console.Write("Setting home position...");
