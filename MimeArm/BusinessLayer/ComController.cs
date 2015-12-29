@@ -28,6 +28,20 @@ namespace MimeArm.BusinessLayer
             Console.WriteLine(string.Join(",", SendExternalCommand(0x50)));
         }
 
+        private void GoToSleepMode()
+        {
+            Console.Write("Sending arm to sleep mode...");
+            Console.WriteLine(string.Join(",", SendExternalCommand(0x60)));
+
+            byte[] armStatusBytes = null;
+            armStatusBytes = ReadArmStatus();
+
+            Console.Write("Arm status: ");
+            Console.WriteLine(string.Join(",", armStatusBytes));
+            Console.WriteLine("Package OK: " + IsPackageOk(armStatusBytes));
+            Console.WriteLine(Port.ReadExisting());
+        }
+
         private bool RequestIDPacket()
         {
             Console.Write("Requesting ID Packet...");
