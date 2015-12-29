@@ -20,9 +20,7 @@ namespace MimeArm.Interfaces
             if (allowedCommunication)
             {
                 Console.Write("Writing to COM: ");
-                var commandBytes = ComController.PrepareByteArrayToSend(255, 430, 190, 220, 0x005A, 0x0200, 0x0100, 10, 0);
-                leapDataController.Port.Write(commandBytes, 0, commandBytes.Length);
-                Console.WriteLine(string.Join(", ", commandBytes));
+                Console.WriteLine(string.Join(", ", leapDataController.SendMoveCommand(430 + t.PalmPosition.x * 160, 190 + t.PalmPosition.y * 20, 220 - t.PalmPosition.z * 40, 10)));
                 //Program.exit.Set();
             }
         }

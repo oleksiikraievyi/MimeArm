@@ -2,12 +2,13 @@
 using System;
 using System.Collections.Generic;
 using System.IO.Ports;
+using System.Runtime.CompilerServices;
 
 namespace MimeArm.BusinessLayer
 {
     public class ComController : Controller<LeapData>, IDisposable
     {
-        public static SerialPort Port { get; private set; }
+        public SerialPort Port { get; private set; }
 
         public ComController()
         {
@@ -65,6 +66,15 @@ namespace MimeArm.BusinessLayer
             returnValue.Add(checksum);
 
             return returnValue.ToArray();
+        }
+
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public byte[] SendMoveCommand(float x, float y, float z, byte speed)
+        {
+            var commandBytes = PrepareByteArrayToSend(255, x, y, z, 0x005A, 0x0200, 0x0100, speed, 0);
+            Port.Write(commandBytes, 0, commandBytes.Length);
+
+            return commandBytes;
         }
 
         public override void Dispose()
