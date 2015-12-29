@@ -11,6 +11,7 @@ namespace MimeArm
     {
         private const string ProgramInfoSectionName = "ProgramInfo";
         private const string ProgramVersionPropertyName = "ProgramVersion";
+        public static ManualResetEvent exit = new ManualResetEvent(false);
 
         public static void Main()
         {
@@ -22,7 +23,9 @@ namespace MimeArm
             {
                 using (var comInterface = new ComInterface(comController))
                 {
-                    new ManualResetEvent(false).WaitOne();
+                    comInterface.AllowCommunication();
+                    exit.WaitOne();
+                    comInterface.DenyCommunication();
                 }
             }
         }
