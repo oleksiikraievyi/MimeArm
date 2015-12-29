@@ -1,0 +1,9 @@
+bin/**
+MimeArm.Tests/obj/**
+MimeArm.Tests/bin/**
+MimeArm/Properties/Settings.*
+MimeArm/bin/**
+MimeArm/obj/**
+.gradle/**
+.vs/**
+packages/Moq.4.2.1510.2205/lib/**
