@@ -1,11 +1,20 @@
 ﻿using MimeArm.Models;
 using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 
 namespace MimeArm.BusinessLayer
 {
-    public class ComController : Controller<LeapData>
+    public class ComController : Controller<LeapData>, IDisposable
     {
+        public SerialPort Port { get; private set; }
+
+        public ComController()
+        {
+            Port = new SerialPort("COM3", 38400);
+            Port.Open();
+        }
+
         protected override LeapData TransferToView()
         {
             return CurrentLeapData;
@@ -56,6 +65,13 @@ namespace MimeArm.BusinessLayer
             returnValue.Add(checksum);
 
             return returnValue.ToArray();
+        }
+
+        public override void Dispose()
+        {
+            Port.Close();
+            Port.Dispose();
+            base.Dispose();
         }
     }
 }

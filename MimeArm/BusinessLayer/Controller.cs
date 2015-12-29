@@ -28,7 +28,7 @@ namespace MimeArm.BusinessLayer
             OnRecievedDataFromReader?.Invoke(this, TransferToView());
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             LeapReader.Dispose();
         }
