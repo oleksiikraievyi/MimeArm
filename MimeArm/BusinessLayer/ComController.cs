@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO.Ports;
 using System.Runtime.CompilerServices;
+using System.Threading;
 
 namespace MimeArm.BusinessLayer
 {
@@ -84,6 +85,18 @@ namespace MimeArm.BusinessLayer
             Port.Write(commandBytes, 0, commandBytes.Length);
 
             return commandBytes;
+        }
+
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public byte[] ReadArmStatus()
+        {
+            Port.RtsEnable = true;
+            var returnValue = new byte[5];
+            Thread.Sleep(1000);
+            Port.Read(returnValue, 0, returnValue.Length);
+            Port.RtsEnable = false;
+
+            return returnValue;
         }
 
         public override void Dispose()
