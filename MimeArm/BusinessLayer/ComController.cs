@@ -99,6 +99,15 @@ namespace MimeArm.BusinessLayer
             return returnValue;
         }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public byte[] SendEmeregencyStopCommand()
+        {
+            var commandBytes = PrepareByteArrayToSend(0, 0, 0, 0, 0, 0, 0, 0, 0x11);
+            Port.Write(commandBytes, 0, commandBytes.Length);
+
+            return commandBytes;
+        }
+
         public override void Dispose()
         {
             Port.Close();
