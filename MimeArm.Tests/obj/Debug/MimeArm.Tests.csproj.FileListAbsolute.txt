@@ -1,0 +1,9 @@
+C:\Users\NineKFlames\Dropbox\Public\MimeArm\bin\deployment\MimeArm.Tests.dll
+C:\Users\NineKFlames\Dropbox\Public\MimeArm\bin\deployment\MimeArm.Tests.pdb
+C:\Users\NineKFlames\Dropbox\Public\MimeArm\MimeArm.Tests\obj\Debug\MimeArm.Tests.csprojResolveAssemblyReference.cache
+C:\Users\NineKFlames\Dropbox\Public\MimeArm\MimeArm.Tests\obj\Debug\MimeArm.Tests.dll
+C:\Users\NineKFlames\Dropbox\Public\MimeArm\MimeArm.Tests\obj\Debug\MimeArm.Tests.pdb
+C:\Users\NineKFlames\Dropbox\Public\MimeArm\MimeArm.Tests\bin\Debug\MimeArm.Tests.dll
+C:\Users\NineKFlames\Dropbox\Public\MimeArm\MimeArm.Tests\bin\Debug\MimeArm.Tests.pdb
+C:\Users\NineKFlames\Dropbox\Public\MimeArm\MimeArm.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\NineKFlames\Dropbox\Public\MimeArm\MimeArm.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml

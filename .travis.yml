@@ -1,0 +1,4 @@
+language: csharp
+solution: MimeArm.sln
+mono: latest
+script : xbuild /p:Configuration=Release MimeArm.sln /p:TargetFrameworkVersion="v4.5"
