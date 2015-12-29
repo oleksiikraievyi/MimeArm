@@ -22,6 +22,22 @@ namespace MimeArm.BusinessLayer
             return CurrentLeapData;
         }
 
+        private bool RequestIDPacket()
+        {
+            Console.Write("Requesting ID Packet...");
+            Console.WriteLine(string.Join(",", SendExternalCommand(0x70)));
+
+            byte[] armStatusBytes = null;
+            armStatusBytes = ReadArmStatus();
+
+            Console.Write("Arm status: ");
+            Console.WriteLine(string.Join(",", armStatusBytes));
+            Console.WriteLine("Package OK: " + IsPackageOk(armStatusBytes));
+            Console.WriteLine(Port.ReadExisting());
+
+            return IsPackageOk(armStatusBytes);
+        }
+
         public static bool IsPackageOk(byte[] package)
         {
             if (package[0] != 0xFF)
