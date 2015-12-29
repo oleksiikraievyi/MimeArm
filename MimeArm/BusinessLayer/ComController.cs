@@ -10,10 +10,14 @@ namespace MimeArm.BusinessLayer
     public class ComController : Controller<LeapData>, IDisposable
     {
         public SerialPort Port { get; private set; }
+
+        private static Random random = new Random();
+        private int currentBackoffLevel;
         private const int STANDARD_BAUD_RATE = 38400;
 
         public ComController()
         {
+            currentBackoffLevel = -1;                   // when calculating backoff time, first increment, then calculate time 
             TryConnectToArm();
             RequestIDPacket();
             SetCartesianCoordinateSystem();
@@ -37,16 +41,22 @@ namespace MimeArm.BusinessLayer
                 if (Port == null)
                 {
                     Console.WriteLine("Arm not connected, please connect the arm.");
-
+                    Thread.Sleep(GetExponentialBackoffTime());
                 }
-                else 
-{
+                else
+                {
                     Port.Open();
                     return true;
                 }
             }
 
             return false;
+        }
+
+        private int GetExponentialBackoffTime()
+        {
+            currentBackoffLevel++;
+            return random.Next(0, currentBackoffLevel) * 1000;          // return random amount of seconds in according to exponential backoff idea
         }
 
         protected override LeapData TransferToView()
