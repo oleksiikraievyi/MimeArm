@@ -40,7 +40,7 @@ namespace MimeArm.BusinessLayer
 
                 if (Port == null)
                 {
-                    Console.WriteLine("Arm not connected, please connect the arm.");
+                    Console.WriteLine("Arm is not connected, please connect the arm.");
                     Thread.Sleep(GetExponentialBackoffTime());
                 }
                 else
@@ -236,23 +236,11 @@ namespace MimeArm.BusinessLayer
             var byteArray = PrepareByteArrayToSend(0, 100, 100, 100, 50, 100, 100, 30, 11);
             //assert equals byte[] {255, 0, 100, 0, 100, 0, 100, 0, 50, 0, 100, 0, 100, 30, 0, 11, 176}
         }
-
-        public void testFalse_prepareByteArrayToSend()
-        {
-            var byteArray = PrepareByteArrayToSend(0, 100, 100, 100, 50, 100, 100, 30, 11);
-            //assert equals byte[] {255, 6, 4, 0, 100, 0, 100, 0, 50, 0, 100, 0, 100, 30, 0, 11, 176}
-        }
-
+        
         public void testTrue_prepareByteArrayToSendWithEmptyHeader()
         {
-            var byteArray = PrepareByteArrayToSend(255, 100, 100, 100, 50, 100, 100, 30, 11);
-            //assert equals byte[] {255, 0, 100, 0, 100, 0, 100, 0, 50, 0, 100, 0, 100, 30, 0, 11, 176}
-        }
-
-        public void testFalse_prepareByteArrayToSendWithEmptyHeader()
-        {
             var byteArray = PrepareByteArrayToSend(0, 100, 100, 100, 50, 100, 100, 30, 11);
-            //assert equals byte[] {0, 6, 4, 0, 100, 0, 100, 0, 50, 0, 100, 0, 100, 30, 0, 11, 176}
+            //assert equals byte[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 176}
         }
 
         public void testTrue_isPackageOk()
@@ -267,6 +255,13 @@ namespace MimeArm.BusinessLayer
             byte[] testValue = { 255, 0, 100, 0, 100, 0, 100, 1, 50, 0, 100, 0, 100, 30, 0, 11, 176 };
             bool isOk = IsPackageOk(testValue);
             //assert equals false
+        }
+
+        public void test_getExponentialBackoffTime()
+        {
+            currentBackoffLevel = 0;
+            int timeout = GetExponentialBackoffTime();
+            //assert equals 0
         }
     }
 }
