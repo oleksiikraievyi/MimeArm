@@ -22,6 +22,12 @@ namespace MimeArm.BusinessLayer
             return CurrentLeapData;
         }
 
+        private void GoToHomePosition()
+        {
+            Console.Write("Setting home position...");
+            Console.WriteLine(string.Join(",", SendExternalCommand(0x50)));
+        }
+
         private bool RequestIDPacket()
         {
             Console.Write("Requesting ID Packet...");
