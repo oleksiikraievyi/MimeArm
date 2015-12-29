@@ -1,7 +1,6 @@
 bin/**
 MimeArm.Tests/obj/**
 MimeArm.Tests/bin/**
-MimeArm/Properties/Settings.*
 MimeArm/bin/**
 MimeArm/obj/**
 .gradle/**
