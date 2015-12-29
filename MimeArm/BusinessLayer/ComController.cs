@@ -77,6 +77,15 @@ namespace MimeArm.BusinessLayer
             return commandBytes;
         }
 
+        [MethodImpl(MethodImplOptions.Synchronized)]
+        public byte[] SendExternalCommand(byte ext)
+        {
+            var commandBytes = PrepareByteArrayToSend(0, 0, 0, 0, 0, 0, 0, 0, ext);
+            Port.Write(commandBytes, 0, commandBytes.Length);
+
+            return commandBytes;
+        }
+
         public override void Dispose()
         {
             Port.Close();
