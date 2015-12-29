@@ -1,5 +1,3 @@
 language: csharp
 solution: MimeArm.sln
 mono: latest
-install : nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
-script : mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./MimeArm.Tests/bin/Debug/MimeArm.Tests.dll
