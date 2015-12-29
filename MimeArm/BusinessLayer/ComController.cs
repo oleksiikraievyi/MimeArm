@@ -7,7 +7,7 @@ namespace MimeArm.BusinessLayer
 {
     public class ComController : Controller<LeapData>, IDisposable
     {
-        public SerialPort Port { get; private set; }
+        public static SerialPort Port { get; private set; }
 
         public ComController()
         {
