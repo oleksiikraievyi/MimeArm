@@ -1,3 +1,4 @@
 language: csharp
 solution: MimeArm.sln
+install : nuget restore MimeArm.sln 
 mono: latest
