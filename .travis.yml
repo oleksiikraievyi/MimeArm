@@ -2,4 +2,4 @@ language: csharp
 solution: MimeArm.sln
 install : nuget restore MimeArm.sln 
 mono: latest
-script : xbuild /p:Configuration=Release MimeArm.sln /p:TargetFrameworkVersion="v4.5" /r:MimeArm/LeapCSharp.NET4.0.dll
+script : xbuild /p:Configuration=Release MimeArm.sln /p:TargetFrameworkVersion="v4.5"
