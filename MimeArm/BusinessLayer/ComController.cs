@@ -22,6 +22,23 @@ namespace MimeArm.BusinessLayer
             return CurrentLeapData;
         }
 
+        public static bool IsPackageOk(byte[] package)
+        {
+            if (package[0] != 0xFF)
+                return false;
+
+            int checksum = 0;
+
+            for (var i = 1; i < package.Length - 1; i++)
+            {
+                checksum += package[i];
+            }
+
+            checksum = 0xFF - checksum % 256;
+
+            return (checksum == package[package.Length - 1]);
+        }
+
         public static byte[] PrepareByteArrayToSend(byte header, float x, float y, float z, short wristAngle, short wristRotation, short gripper, byte speed, byte external)
         {
             List<byte> returnValue = new List<byte>();
