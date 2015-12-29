@@ -3,17 +3,19 @@ using MimeArm.BusinessLayer;
 using MimeArm.Interfaces;
 using System;
 using System.Configuration;
+using System.Collections.Specialized;
 
 namespace MimeArm
 {
     class Program
     {
+        private const string ProgramInfoSectionName = "ProgramInfo";
+        private const string ProgramVersionPropertyName = "ProgramVersion";
+
         public static void Main()
         {
-            foreach (var key in ConfigurationManager.AppSettings.Keys)
-                Console.WriteLine(key.ToString());
-
-            Console.WriteLine("MimeArm, version: " );
+            var programInfoConfig = (ConfigurationManager.GetSection(ProgramInfoSectionName) as NameValueCollection)?[ProgramVersionPropertyName];
+            Console.WriteLine("MimeArm, version: " + programInfoConfig);
             Console.Read();
 
             using (var comController = new ComController())

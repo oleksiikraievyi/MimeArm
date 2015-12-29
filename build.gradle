@@ -18,9 +18,9 @@ task getVersion {
         standardOutput = stdout
     }
     String version = stdout.toString().trim()
-	File assemblyInfoFile = file('MimeArm/Properties/AssemblyInfo.cs')
+	File assemblyInfoFile = file('MimeArm/App.config')
 	
-	filter { File text -> replace ('')}
+	//filter { File text -> replace ('')}
 }
 
 task copyLeapDlls {
