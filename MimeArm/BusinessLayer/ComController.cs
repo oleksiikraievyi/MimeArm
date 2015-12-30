@@ -12,12 +12,12 @@ namespace MimeArm.BusinessLayer
         public SerialPort Port { get; private set; }
 
         private static Random random = new Random();
-        private int currentBackoffLevel;
+        public static int CurrentBackoffLevel { get; set; }
         private const int STANDARD_BAUD_RATE = 38400;
 
         public ComController()
         {
-            currentBackoffLevel = -1;                   // when calculating backoff time, first increment, then calculate time 
+            CurrentBackoffLevel = -1;                   // when calculating backoff time, first increment, then calculate time 
             TryConnectToArm();
             RequestIDPacket();
             SetCartesianCoordinateSystem();
@@ -53,10 +53,13 @@ namespace MimeArm.BusinessLayer
             return false;
         }
 
-        private int GetExponentialBackoffTime()
+        public static int GetExponentialBackoffTime()
         {
-            currentBackoffLevel++;
-            return random.Next(0, currentBackoffLevel) * 1000;          // return random amount of seconds in according to exponential backoff idea
+            if (random == null)
+                random = new Random();
+
+            CurrentBackoffLevel++;
+            return random.Next(0, CurrentBackoffLevel) * 1000;          // return random amount of seconds in according to exponential backoff idea
         }
 
         protected override LeapData TransferToView()
@@ -259,7 +262,7 @@ namespace MimeArm.BusinessLayer
 
         public void test_getExponentialBackoffTime()
         {
-            currentBackoffLevel = 0;
+            CurrentBackoffLevel = 0;
             int timeout = GetExponentialBackoffTime();
             //assert equals 0
         }
