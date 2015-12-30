@@ -32,7 +32,19 @@ namespace MimeArm.Tests
             Assert.IsTrue(ComController.IsPackageOk(testValue));
         }
 
-      
+        [Test]
+        public void testFalse_isPackageOk()
+        {
+            byte[] testValue = { 255, 0, 100, 0, 100, 0, 100, 1, 50, 0, 100, 0, 100, 30, 0, 11, 176 };
+            Assert.IsFalse(ComController.IsPackageOk(testValue));
+        }
+
+        [Test]
+        public void test_getExponentialBackoffTime()
+        {
+            ComController.CurrentBackoffLevel = 0;
+            Assert.AreEqual(ComController.GetExponentialBackoffTime(), 0);
+        }
 
     }
 }
